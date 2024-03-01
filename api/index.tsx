@@ -55,7 +55,7 @@ app.frame('/', (c) => {
         >
           {status === 'response'
             ? `You are fid ${fid}. Verified: ${verified}.`
-            : `I (will) know who you are, and track you with ${process.env.PINATA_JWT}`}
+            : 'I (will) know who you are, and track you with FDK Frame Analytics'}
         </div>
       </div>
     ),
