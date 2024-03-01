@@ -1,10 +1,15 @@
 import { Button, Frog } from 'frog'
 import { handle } from 'frog/vercel'
+import { PinataFDK } from 'pinata-fdk'
 
 // Uncomment to use Edge Runtime.
 // export const config = {
 //   runtime: 'edge',
 // }
+
+const fdk = new PinataFDK({
+  pinata_jwt: process.env.PINATA_JWT
+})
 
 export const app = new Frog({
   basePath: '/api',
@@ -59,6 +64,11 @@ app.frame('/', (c) => {
     ],
   })
 })
+
+app.use("/api", fdk.analyticsMiddleware({
+  frameId: "whoami-frog-vercel",
+  customId: "https://whoami-frame.vercel.app/api"
+}))
 
 export const GET = handle(app)
 export const POST = handle(app)
