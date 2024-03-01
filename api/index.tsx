@@ -9,7 +9,7 @@ import { handle } from 'frog/vercel'
 export const app = new Frog({
   basePath: '/api',
   // Supply a Hub API URL to enable frame verification.
-  // hubApiUrl: 'https://api.hub.wevm.dev',
+  hubApiUrl: 'https://api.hub.wevm.dev',
   // hubApiUrl: 'https://hub.pinata.cloud',
 })
 
@@ -49,7 +49,7 @@ app.frame('/', (c) => {
           }}
         >
           {status === 'response'
-            ? `You are fid ${fid}. I did not make a round-trip to a Hub to verify you`
+            ? `You are fid ${fid}. Verified: ${verified}.`
             : 'I (will) know who you are'}
         </div>
       </div>
