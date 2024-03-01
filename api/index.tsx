@@ -55,7 +55,7 @@ app.frame('/', (c) => {
         >
           {status === 'response'
             ? `You are fid ${fid}. Verified: ${verified}.`
-            : 'I (will) know who you are'}
+            : `I (will) know who you are, and track you with ${process.env.PINATA_JWT}`}
         </div>
       </div>
     ),
