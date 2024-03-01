@@ -65,7 +65,7 @@ app.frame('/', (c) => {
   })
 })
 
-app.use("/api", fdk.analyticsMiddleware({
+app.use("/", fdk.analyticsMiddleware({
   frameId: "whoami-frog-vercel",
   customId: "https://whoami-frame.vercel.app/api"
 }))
