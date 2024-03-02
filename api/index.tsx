@@ -18,6 +18,11 @@ export const app = new Frog({
   // hubApiUrl: 'https://hub.pinata.cloud',
 })
 
+app.use("/", fdk.analyticsMiddleware({
+  frameId: "whoami-frog-vercel",
+  customId: "https://whoami-frame.vercel.app/api"
+}))
+
 app.frame('/', (c) => {
   const { status, frameData, verified } = c
   const fid = frameData?.fid
@@ -64,11 +69,6 @@ app.frame('/', (c) => {
     ],
   })
 })
-
-app.use("/", fdk.analyticsMiddleware({
-  frameId: "whoami-frog-vercel",
-  customId: "https://whoami-frame.vercel.app/api"
-}))
 
 export const GET = handle(app)
 export const POST = handle(app)
